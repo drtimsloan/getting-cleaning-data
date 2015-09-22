@@ -14,6 +14,7 @@ The activity and feature labels are also loaded in and stored as separate vector
 3) Merges the test and train data with rbind and then uses a substring search to find all the mean and standard deviation variables.
 As the 'meanFreq' columns are not strictly mean values for each measurement, these are searched separately and removed from the list.
 The final list of variables is then used to subset the dataset.
+Removes the brackets from the variable names so these do not interfere with exporting/importing the data.
 
 4) The activity codes are converted to activity labels using the activity label vector. 
 Subject, activity and variables are combined together with cbind into a single data frame. 

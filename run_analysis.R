@@ -27,13 +27,13 @@ mean_vec <- grep("mean", features)
 std_vec <- grep("std", features)
 mean_std_vec <- sort(c(mean_vec[!mean_vec %in% mean_freq], std_vec))
 X_subset <- X_all[,mean_std_vec]
-names(X_subset) <- features[mean_std_vec]
+names(X_subset) <- gsub("\\()","",features[mean_std_vec])
 
 ## 4) Reshape the data and create a new dataset with variable means by subject and activity
 library(reshape2)
 subject <- as.factor(subject_all$V1)
 activity <- activity_labels[y_all$V1,2]
 full_set <- cbind(subject, activity, X_subset)
-fullMelt <- melt(full_set, id = c("subject","activity"), measure.vars = features[mean_std_vec])
+fullMelt <- melt(full_set, id = c("subject","activity"), measure.vars = names(X_subset))#features[mean_std_vec])
 tidy_set <- dcast(fullMelt, subject + activity ~ variable, mean)
 write.table(tidy_set, file = "tidy_set.txt", row.names = FALSE)

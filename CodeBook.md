@@ -66,7 +66,7 @@ activity
     5 STANDING
     6 LAYING
     
-The remaining columns consist of the mean 3-axial (X,Y,Z) signal means and standard deviations (Hz) for each subject and activity as described above:
+The remaining columns consist of the mean 3-axial (X,Y,Z) signal means and standard deviations (Hz) for each subject and activity as described above. Each of the 3-axial signals are reported individually as -X -Y or -Z, and each measurement is marked as being either the mean (-mean) or standard deviation (-std):
 
 tBodyAcc-XYZ
 tGravityAcc-XYZ
